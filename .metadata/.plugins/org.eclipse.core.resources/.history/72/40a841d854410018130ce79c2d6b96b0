@@ -1,0 +1,33 @@
+package projetPoec;
+
+public class Commentaire {
+	private String comment;
+	private int like;
+	private int notLike;
+	public Commentaire(String comment, int like, int notLike) {
+		super();
+		this.comment = comment;
+		this.like = like;
+		this.notLike = notLike;
+	}
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	public int getLike() {
+		return like;
+	}
+	public void setLike(int like) {
+		this.like = like;
+	}
+	public int getNotLike() {
+		return notLike;
+	}
+	public void setNotLike(int notLike) {
+		this.notLike = notLike;
+	}
+	
+
+}

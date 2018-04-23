@@ -1,0 +1,9 @@
+package projetPoec;
+
+public class Repository {
+	
+	User user1 = new User(id1, name1, mail1 );
+	
+	
+
+}

@@ -1,0 +1,11 @@
+package hello;
+
+public class Circle implements Shape {
+	
+	double r ;
+	public double calcArea() {
+		return Math.PI*Math.pow(r, 2);
+	}
+	
+
+}

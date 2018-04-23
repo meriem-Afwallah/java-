@@ -1,0 +1,12 @@
+package projetPoec;
+
+public class Commentaire {
+	private int id;
+	private String comment;
+	private int like;
+	private int dislike;
+	private int commentCounter;
+	
+	
+
+}
