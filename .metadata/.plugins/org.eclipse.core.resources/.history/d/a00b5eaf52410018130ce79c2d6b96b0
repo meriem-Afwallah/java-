@@ -1,8 +1,0 @@
-package projetPoec;
-
-public class Commentaire {
-	private String comment;
-	private int like;
-	private int notLike;
-
-}

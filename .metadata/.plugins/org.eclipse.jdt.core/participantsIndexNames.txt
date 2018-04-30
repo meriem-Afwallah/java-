@@ -1,6 +1,8 @@
 INDEX VERSION 1.130
 C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2291177989.index
 \projetPoec\src
+C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3127745381.index
+\projetMyTube\src
 C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2463693062.index
 \helloWeb\src
 C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1265635530.index
