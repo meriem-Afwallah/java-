@@ -10,33 +10,41 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="actor")
 public class Actor {
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id	 
+	@GeneratedValue(strategy=GenerationType.IDENTITY) // pour le Auto Increment de MySQL
 	@Column(name="actor_id")
 	private Short id;
 	
 	@Column(name="first_name")
-	private String firstName;
+	private String firstname;
 	
 	@Column(name="last_name")
-	private String lastName;
+	private String lastname;
 	
 	@Column(name="last_update")
-    private Instant lastUpdate;
-	
-	@ManyToMany(mappedBy = "actors")
-	private Set<Film> films = new HashSet<>();
+	private Instant lastUpdate;
 
-	public Set<Film> getFilms() {
-		return films;
+	@OneToMany(mappedBy = "actor")
+	private Set<FilmActor> filmactors = new HashSet<>();
+	
+	public Set<FilmActor> getFilmactors() {
+		return filmactors;
 	}
 
+//	@ManyToMany(mappedBy = "actors")
+//    private Set<Film> films = new HashSet<>();
+//	
+//	public Set<Film> getFilms() {
+//		return films;
+//	}
+	
 	public Short getId() {
 		return id;
 	}
@@ -45,28 +53,24 @@ public class Actor {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
 	public Instant getLastUpdate() {
 		return lastUpdate;
-	}
-
-	public void setLastUpdate(Instant lastUpdate) {
-		this.lastUpdate = lastUpdate;
 	}
 
 }

@@ -21,8 +21,9 @@
 		<mapping class="com.m2i.hello.Address" />
 		<mapping class="com.m2i.hello.City" />
 		<mapping class="com.m2i.hello.Country" />
-			<mapping class="com.m2i.hello.Actor" />
+		<mapping class="com.m2i.hello.Actor" />
 		<mapping class="com.m2i.hello.Film" />
+		<mapping class="com.m2i.hello.FilmActor" />
 		
 	</session-factory>
 </hibernate-configuration>

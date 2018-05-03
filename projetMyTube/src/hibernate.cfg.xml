@@ -18,5 +18,6 @@
 
 		<!-- mapping -->
 		<mapping class="com.mytube.domain.hibernate.Video" />
+		<mapping class="com.mytube.domain.hibernate.Comment" />
 	</session-factory>
 </hibernate-configuration>

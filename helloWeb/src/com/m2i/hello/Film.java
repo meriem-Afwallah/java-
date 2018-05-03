@@ -13,63 +13,65 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="film")
 public class Film {
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id	 
+	@GeneratedValue(strategy=GenerationType.IDENTITY) // pour le Auto Increment de MySQL
 	@Column(name="film_id")
 	private Short id;
 	
-	@Column(name="title")
 	private String title;
-	
-	@Column(name="description")
 	private String description;
-	
 	@Column(name="release_year")
-	private Integer  releaseYear;
+	private Integer releaseYear;
 	
 	@Column(name="language_id")
-	private Short languageId;
+	private Byte languageId;
 	
 	@Column(name="original_language_id")
-	private Short originalLanguageId;
+	private Byte originalLanguageId;
 	
 	@Column(name="rental_duration")
-	private BigDecimal rentalDuration;
+	private Byte rentalDuration;
 	
 	@Column(name="rental_rate")
 	private BigDecimal rentalRate;
 	
-	@Column(name="length")
 	private Short length;
 	
 	@Column(name="replacement_cost")
 	private BigDecimal replacementCost;
 	
-	@Column(name="rating")
 	private String rating;
 	
 	@Column(name="special_features")
 	private String specialFeatures;
-	
+
 	@Column(name="last_update")
 	private Instant lastUpdate;
-
-	@ManyToMany
-	 @JoinTable(name = "film_actor", 
-			 	joinColumns = @JoinColumn(name = "film_id"),
-		        inverseJoinColumns = @JoinColumn(name = "actor_id"))
-	private Set<Actor> actors = new HashSet<>();
 	
-	public Set<Actor> getActors() {
-		return actors;
-	}
+	@OneToMany(mappedBy = "film")
+	private Set<FilmActor> filmactors = new HashSet<>();
 
+	public Set<FilmActor> getFilmactors() {
+		return filmactors;
+	}
+	 
+//	@ManyToMany
+//    @JoinTable(
+//            name = "film_actor",
+//            joinColumns = @JoinColumn(name = "film_id"),
+//            inverseJoinColumns = @JoinColumn(name = "actor_id"))
+//    private Set<Actor> actors = new HashSet<>();
+	
+//	public Set<Actor> getActors() {
+//		return actors;
+//	}
+	
 	public Short getId() {
 		return id;
 	}
@@ -97,32 +99,32 @@ public class Film {
 	public Integer getReleaseYear() {
 		return releaseYear;
 	}
-
+	
 	public void setReleaseYear(Integer releaseYear) {
 		this.releaseYear = releaseYear;
 	}
 
-	public Short getLanguageId() {
+	public Byte getLanguageId() {
 		return languageId;
 	}
 
-	public void setLanguageId(Short languageId) {
+	public void setLanguageId(Byte languageId) {
 		this.languageId = languageId;
 	}
 
-	public Short getOriginalLanguageId() {
+	public Byte getOriginalLanguageId() {
 		return originalLanguageId;
 	}
 
-	public void setOriginalLanguageId(Short originalLanguageId) {
+	public void setOriginalLanguageId(Byte originalLanguageId) {
 		this.originalLanguageId = originalLanguageId;
 	}
 
-	public BigDecimal getRentalDuration() {
+	public Byte getRentalDuration() {
 		return rentalDuration;
 	}
 
-	public void setRentalDuration(BigDecimal rentalDuration) {
+	public void setRentalDuration(Byte rentalDuration) {
 		this.rentalDuration = rentalDuration;
 	}
 
@@ -165,15 +167,9 @@ public class Film {
 	public void setSpecialFeatures(String specialFeatures) {
 		this.specialFeatures = specialFeatures;
 	}
-
+	
 	public Instant getLastUpdate() {
 		return lastUpdate;
-	}
-
-	public void setLastUpdate(Instant lastUpdate) {
-		this.lastUpdate = lastUpdate;
-	}
+	}	
 	
-	
-
 }

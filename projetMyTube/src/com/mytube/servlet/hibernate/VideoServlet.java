@@ -13,7 +13,7 @@ import com.mytube.domain.hibernate.VideoRepository;
 /**
  * Servlet implementation class VideoServlet
  */
-@WebServlet("/Video")
+@WebServlet("/VideoServlet")
 public class VideoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
