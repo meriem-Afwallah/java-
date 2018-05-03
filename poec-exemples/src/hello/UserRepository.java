@@ -9,8 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import projetPoecMyTube.User;
-
 public class UserRepository {
 
 	private User mapResultSetToUser(ResultSet rs) throws SQLException  {

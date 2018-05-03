@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="sous-video">
                         <p><h2> BARBU A.S.D. </h2>
-                            <h4>Ajoutée le 15 juin 2015 </h4>
+                            <h4>AjoutÃ©e le 15 juin 2015 </h4>
                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident modi assumenda ad doloremque consequatur eius nulla ratione nemo, nihil, explicabo tempora veniam perspiciatis expedita quae tempore dolor iusto nesciunt. Optio?
                         </p>
                     </div>
@@ -58,7 +58,7 @@
                                 </form>   
                      </div>
                      <div class="liste-commentaire">
-                         <p><h4>içi une premier commentaire </h4></p>
+                         <p><h4>iÃ§i une premier commentaire </h4></p>
                          
                      </div>
                </div>

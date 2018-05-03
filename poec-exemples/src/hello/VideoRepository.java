@@ -9,9 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import projetPoecMyTube.User;
-import projetPoecMyTube.Video;
-
 public class VideoRepository {
 
 	private Video mapResultSetToVideo(ResultSet rsVideo, ResultSet rsUser, ResultSet rsComment) throws SQLException {
