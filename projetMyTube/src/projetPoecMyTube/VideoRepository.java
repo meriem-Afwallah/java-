@@ -8,10 +8,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.mytube.domain.hibernate.HibernateUtils;
+import com.mytube.domain.hibernate.Video;
 
 public class VideoRepository {
 
-	private Video mapResultSetToVideo(ResultSet rs) throws SQLException {
+	/*	private Video mapResultSetToVideo(ResultSet rs) throws SQLException {
 		// maps the video
 		Video v = new Video();
 		v.setId(rs.getInt("id"));
@@ -40,64 +48,96 @@ public class VideoRepository {
 		v.setComment(c);
 
 		return v;
+	}*/
+	
+	public static Video addVideo() {
+		
+		SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+		Session session = sessionFactory.openSession();
+		
+		Video v = new Video();
+		session.getTransaction().begin();
+		
+		session.persist(v);
+		
+		
+		session.close();
+	    sessionFactory.close();
+		return v;
+	
 	}
 
-	public Video findById(int id) {
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mytube?serverTimezone=UTC", "root", "rootroot")) {
-
-            // fetch the video
-            PreparedStatement pstmt = 
-                    conn.prepareStatement("SELECT video.id, video.user_id,video.title, video.publicationDate, \r\n" + 
-                    		"		video.description, video.tags, video.urlVideo, video.url_video_miniature, video.duration,\r\n" + 
-                    		"        user.id, user.username, user.password, user.email, user.url_avatar, commentaire.id, commentaire.texte, commentaire.video_id,\r\n" + 
-                    		"        commentaire.user_id, commentaire.date_publication\r\n" + 
-                    		"FROM video \r\n" + 
-                    		"	INNER JOIN user\r\n" + 
-                    		"		ON video.user_id=user.id\r\n" + 
-                    		"	INNER JOIN commentaire\r\n" + 
-                    		"		ON commentaire.video_id = video.id;");
-            //pstmt.setInt(1, id);
-            
-            ResultSet rs = pstmt.executeQuery();
-            if(! rs.next()) { 
-                return null; 
-            }
-            
-            return  mapResultSetToVideo(rs);
-            
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
-	public List<Video> findAllVideo() {
-
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mytube?serverTimezone=UTC",
-				"root", "rootroot")) {
-
-			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT video.id, video.user_id,video.title, video.publicationDate, \r"
-					+ "		video.description, video.tags, video.urlVideo, video.url_video_miniature, video.duration,\r"
-					+ "        user.id, user.username, user.password, user.email, user.url_avatar, commentaire.id, commentaire.texte, commentaire.video_id,\r"
-					+ "        commentaire.user_id, commentaire.date_publication\r" + "FROM user \r"
-					+ "	INNER JOIN video\r" + "		ON video.user_id=user.id\r" + "	INNER JOIN commentaire\r"
-					+ "		ON commentaire.video_id = video.id");
-
-			List<Video> videos = new ArrayList<>();
-
-			while (rs.next()) {
-				Video v = mapResultSetToVideo(rs);
-
-				videos.add(v);
-			}
-
-			return videos;
-
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-
-	}
+//	public Video findById(int id) {
+//        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mytube?serverTimezone=UTC", "root", "rootroot")) {
+//
+//            // fetch the video
+//            PreparedStatement pstmt = 
+//                    conn.prepareStatement("SELECT video.id, video.user_id,video.title, video.publicationDate, \r\n" + 
+//                    		"		video.description, video.tags, video.urlVideo, video.url_video_miniature, video.duration,\r\n" + 
+//                    		"        user.id, user.username, user.password, user.email, user.url_avatar, commentaire.id, commentaire.texte, commentaire.video_id,\r\n" + 
+//                    		"        commentaire.user_id, commentaire.date_publication\r\n" + 
+//                    		"FROM video \r\n" + 
+//                    		"	INNER JOIN user\r\n" + 
+//                    		"		ON video.user_id=user.id\r\n" + 
+//                    		"	INNER JOIN commentaire\r\n" + 
+//                    		"		ON commentaire.video_id = video.id;");
+//            //pstmt.setInt(1, id);
+//            
+//            ResultSet rs = pstmt.executeQuery();
+//            if(! rs.next()) { 
+//                return null; 
+//            }
+//            
+//            return  mapResultSetToVideo(rs);
+//            
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+//
+//
+//	public List<Video> findAllVideo() {
+//
+//		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mytube?serverTimezone=UTC",
+//				"root", "rootroot")) {
+//
+//			Statement stmt = conn.createStatement();
+//			ResultSet rs = stmt.executeQuery("SELECT video.id, video.user_id,video.title, video.publicationDate, \r"
+//					+ "		video.description, video.tags, video.urlVideo, video.url_video_miniature, video.duration,\r"
+//					+ "        user.id, user.username, user.password, user.email, user.url_avatar, commentaire.id, commentaire.texte, commentaire.video_id,\r"
+//					+ "        commentaire.user_id, commentaire.date_publication\r" + "FROM user \r"
+//					+ "	INNER JOIN video\r" + "		ON video.user_id=user.id\r" + "	INNER JOIN commentaire\r"
+//					+ "		ON commentaire.video_id = video.id");
+//
+//			List<Video> videos = new ArrayList<>();
+//
+//			while (rs.next()) {
+//				Video v = mapResultSetToVideo(rs);
+//
+//				videos.add(v);
+//			}
+//
+//			return videos;
+//
+//		} catch (SQLException e) {
+//			throw new RuntimeException(e);
+//		}
+//
+//	}
+//		public  findVideoWithComments(int VideoId) {
+//			
+//			String query5HQL = "SELECT DISTINCT a FROM Actor a JOIN FETCH a.filmactors fa";
+//		       Query<Actor> query5 = session.createQuery(query5HQL, Actor.class);
+//		       List<Actor> resultsQuery5 = query5.getResultList();
+//	          
+//	           for (Actor a : resultsQuery5) {
+//	                System.out.println(a.getFirstname() + " " + a.getLastname());
+//	                Set<FilmActor> fa = a.getFilmactors();
+//	                for(FilmActor filmactor : fa) {
+//	                    System.out.println("\t" + filmactor.getFilm().getTitle());
+//	                }
+//	            }
+//		}
+//		return v;
     
 }

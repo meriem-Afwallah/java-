@@ -4,6 +4,7 @@ import java.time.Instant;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,7 +33,7 @@ public class Comment {
     private Video video;
 
     @Id
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="user_id",
     			foreignKey=@ForeignKey(name ="fk_commentaire_user"))
     private User user;
@@ -56,20 +57,20 @@ public class Comment {
 		this.text = text;
 	}
 
-	public Integer getVideoId() {
-		return videoId;
+	public Video getVideo() {
+		return video;
 	}
 
-	public void setVideoId(Integer videoId) {
-		this.videoId = videoId;
+	public void setVideo(Video video) {
+		this.video = video;
 	}
 
-	public Integer getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Instant getDatePublication() {

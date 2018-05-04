@@ -3,6 +3,7 @@ package com.m2i.hello;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
@@ -16,13 +17,13 @@ import javax.persistence.Table;
 	public class FilmActor implements Serializable {
 
 		@Id
-	    @ManyToOne
+	    @ManyToOne(fetch=FetchType.LAZY)
 		@JoinColumn(name="film_id",
 				    foreignKey=@ForeignKey(name ="fk_film_actor_film"))
 	    private Film film;
 
 	    @Id
-	    @ManyToOne
+	    @ManyToOne(fetch=FetchType.LAZY)
 		@JoinColumn(name="actor_id",
 	    			foreignKey=@ForeignKey(name ="fk_film_actor_actor"))
 	    private Actor actor;

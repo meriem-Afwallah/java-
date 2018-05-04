@@ -30,8 +30,8 @@ public class VideoServletOld extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		VideoRepository videoRepo = new VideoRepository();
-		Video video = videoRepo.findById(8);
-		request.setAttribute("video", video );
+		//Video video = videoRepo.findById(8);
+		//request.setAttribute("video", video );
 		request.getRequestDispatcher("Video.jsp").forward(request, response);
 		
 //		List<Video> videos = videoRepo.findById();
