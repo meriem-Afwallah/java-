@@ -59,10 +59,11 @@ public class VideoRepository {
 		session.getTransaction().begin();
 		
 		session.persist(v);
+	//	session.
 		
 		
-		session.close();
-	    sessionFactory.close();
+//		session.close();
+//	    sessionFactory.close();
 		return v;
 	
 	}

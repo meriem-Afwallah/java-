@@ -60,8 +60,13 @@ public class VideoFormCreateServlet extends HttpServlet {
 			request.getRequestDispatcher("VideoCreate.jsp").forward(request, response);
 			
 		}else {
+			Video v = new Video();
 			
-			request.setAttribute("video", VideoRepository.addVideo());
+			
+		
+			
+			
+			//request.setAttribute("video", VideoRepository.addVideo());
 		}
 		
 	}
