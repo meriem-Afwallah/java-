@@ -3,7 +3,13 @@ C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp
 \projetPoec\src
 C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3127745381.index
 \projetMyTube\src
+C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2785260819.index
+\mytube-maven\src\main\java
 C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2463693062.index
 \helloWeb\src
 C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1265635530.index
 \projetPoec\src
+C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4110239562.index
+\demo-webapp-bdx-2018\src\main\java
+C:\Users\Administrateur\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\779598902.index
+\projet-mytube\src\main\java
